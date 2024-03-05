@@ -1,13 +1,17 @@
 import express, { Request, Response } from 'express';
 import rateLimit from 'express-rate-limit';
+import cors from 'cors';
 
 const accountLimiter = rateLimit({
     windowMs: 60 * 60 * 1000,
     max: 6, 
     message: "Demasiadas peticiones realizadas, intenta despues de 1 hora"
 });
-
 const app = express();
+app.use(cors({
+    origin: '*',
+    methods: 'GET',
+}));
 const PORT = 3000;
 
 const data = [
