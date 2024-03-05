@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import rateLimit from 'express-rate-limit';
+import { rateLimit} from 'express-rate-limit';
 import cors from 'cors';
 
 const accountLimiter = rateLimit({
