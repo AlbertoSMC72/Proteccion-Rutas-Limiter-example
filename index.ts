@@ -7,7 +7,7 @@ const accountLimiter = rateLimit({
     max: 6, 
     message: "Demasiadas peticiones realizadas, intenta despues de 1 hora"
 });
-const app = express();
+let app = express();
 app.use(cors({
     origin: '*',
     methods: 'GET',
@@ -36,5 +36,5 @@ app.get('/elements/:id', accountLimiter, (req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Servidor corriendo en el pureto ${PORT}`);
 });
